@@ -1,0 +1,18 @@
+config:
+  target: https://satellite-dev.on.fleek.co/
+  engines:
+    playwright:
+      launchOptions:
+        headless: false
+  phases:
+    - name: "1 VU User"
+      arrivalRate: 1
+      duration: 1
+  
+  processor: "./satellite.js"
+
+scenarios:
+  - name: "Create Account and add file"
+    engine: playwright
+    flowFunction: "satelliteCreateAccount"
+    flow: []
