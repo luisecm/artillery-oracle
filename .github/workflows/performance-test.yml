@@ -10,7 +10,7 @@ jobs:
     name: Create Account with Multiple VU's
     steps:
     - name: Checkout Working Directory 🔨
-      uses: actions/checkout@v3
+      uses: actions/checkout@master
 
     - name: Setup Node.js 🔨
       uses: actions/setup-node@v3
