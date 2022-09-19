@@ -7,7 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Create Account with Multiple VU's
     steps:
-    - name: Checkout Working Directory
+
+    - name: Checkout Working Directory 🔨
     - uses: actions/checkout@v3
 
     - name: Setup Node.js 🔨
@@ -15,10 +16,10 @@ jobs:
       with:
         node-version: 16
 
-    - name: Install artillery-playwright
-    - uses: npm install artillery artillery-engine-playwright
+    - name: Install artillery-playwright 🔨
+      run: npm install artillery artillery-engine-playwright
 
-    - name: Load Test Action Step
+    - name: Load Test Action Step 🔨
       id: load-test
       uses: kenju/github-actions-artillery@master
       with:
