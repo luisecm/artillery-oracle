@@ -1,6 +1,8 @@
 name: ArtilleryIO Performance Test
 
-on: [pull_request]
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
 
 jobs:
   load-test-satellite:
