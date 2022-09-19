@@ -11,6 +11,9 @@ jobs:
     
     steps:
     - uses: actions/checkout@master
+
+    - name:
+      run: npm install -g artillery-engine-playground
       
     - name: Load Test Action Step 🔨
       id: load-test
