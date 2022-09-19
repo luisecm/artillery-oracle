@@ -18,7 +18,7 @@ jobs:
         node-version: 16
 
     - name: Install Playwright
-      run: npm i -D playwright
+      run: npm i -D playwright && npx playwright install
     
     - name: Load Test Action Step 🔨
       id: load-test
