@@ -28,7 +28,7 @@ jobs:
         npm install artillery-engine-playwright
     
     - name: Load Test Action Step 🔨
-      id: load-test
+      id: load-test-2
       uses: kenju/github-actions-artillery@master
       with:
         filepath: hello-satellite.yml
