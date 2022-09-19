@@ -19,12 +19,8 @@ jobs:
     
     - name: Install artillery-playwright 🔨
       run: |
-        npm install -g artillery artillery-engine-playwright &&
-        npm cache clean --force &&
-        rm -rf /root/.cache &&
-        rm -rf /ms-playwright/firefox* &&
-        rm -rf /ms-playwright/webkit*
-
+        npm install -g artillery artillery-engine-playwright
+        
     - name: Load Test Action Step 🔨
       id: load-test
       uses: kenju/github-actions-artillery@master
