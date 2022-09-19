@@ -11,9 +11,6 @@ jobs:
     
     steps:
     - uses: actions/checkout@master
-    
-    - name: Download new browsers for Playwright  🔨
-      run: npx playwright install
       
     - name: Load Test Action Step 🔨
       id: load-test
