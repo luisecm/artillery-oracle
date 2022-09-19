@@ -17,7 +17,12 @@ jobs:
         node-version: 16
 
     - name: Install artillery-playwright 🔨
-      run: npm install artillery artillery-engine-playwright
+      script: |
+        npm install -g artillery artillery-engine-playwright &&
+        npm cache clean --force &&
+        rm -rf /root/.cache &&
+        rm -rf /ms-playwright/firefox* &&
+        rm -rf /ms-playwright/webkit*
 
     - name: Load Test Action Step 🔨
       id: load-test
