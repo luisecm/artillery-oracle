@@ -13,7 +13,7 @@ jobs:
     - uses: actions/checkout@master
 
     - name:
-      run: npm install -g artillery-engine-playground
+      run: npm install -g artillery-engine-playwright
       
     - name: Load Test Action Step 🔨
       id: load-test
