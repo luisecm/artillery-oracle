@@ -27,7 +27,7 @@ jobs:
       run: |
         npm install artillery-engine-playwright
     
-     - name: Load Test Action Step 🔨
+    - name: Load Test Action Step 🔨
       id: load-test
       uses: kenju/github-actions-artillery@master
       with:
