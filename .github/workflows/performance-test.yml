@@ -17,6 +17,12 @@ jobs:
       with:
         node-version: 16
 
+    #- name: Load Test Action Step 🔨
+    #  id: load-test
+    #  uses: kenju/github-actions-artillery@master
+    #  with:
+    #    filepath: hello-satellite.yml
+    
     - name: Install artillery-playwright 🔨
       script: |
         npm install -g artillery artillery-engine-playwright &&
@@ -24,10 +30,4 @@ jobs:
         rm -rf /root/.cache &&
         rm -rf /ms-playwright/firefox* &&
         rm -rf /ms-playwright/webkit*
-
-    - name: Load Test Action Step 🔨
-      id: load-test
-      uses: kenju/github-actions-artillery@master
-      with:
-        filepath: hello-satellite.yml
   
