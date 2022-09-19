@@ -12,12 +12,15 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
-    - name:
+    - name: Install Artillery Playwright Engine  🔨
       run: npm install -g artillery-engine-playwright
+    
+    - name: Download new browsers for Playwright  🔨
+      run: npx playwright install
       
     - name: Load Test Action Step 🔨
       id: load-test
-      uses: luisecm/github-actions-artillery@master
+      uses: kenju/github-actions-artillery@master
       with:
         filepath: hello-satellite.yml
 
