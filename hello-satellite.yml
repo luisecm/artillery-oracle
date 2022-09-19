@@ -1,5 +1,5 @@
 config:
-  target: https://satellite-dev.on.fleek.co/
+  target: https://hippo.satellite.im/
   engines:
     playwright:
       launchOptions:

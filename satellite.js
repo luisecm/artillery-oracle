@@ -2,10 +2,10 @@ module.exports = { satelliteCreateAccount }
 
 async function satelliteCreateAccount(page) {
   // Open new page
-  await page.goto('https://satellite-dev.on.fleek.co/');
+  await page.goto('https://hippo.satellite.im/');
   
   // Enter PIN
-  let pinInput = '[placeholder="Enter Pin\\.\\.\\."]'
+  let pinInput = '.input'
   await page.waitForSelector(pinInput)
   await page.locator(pinInput).click()
   await page.locator(pinInput).fill('12345')
@@ -14,12 +14,10 @@ async function satelliteCreateAccount(page) {
   // Click on Create Account
   await page.waitForSelector('button:has-text("Create Account")')
   await page.locator('button:has-text("Create Account")').click();
-  //await expect(page).toHaveURL('https://satellite-dev.on.fleek.co/#/setup/phrase');
 
   // Click on "I Saved It"
   await page.waitForSelector('button:has-text("I Saved It")')
   await page.locator('button:has-text("I Saved It")').click();
-  //await expect(page).toHaveURL('https://satellite-dev.on.fleek.co/#/auth/register');
   
   // Enter username and status
   await page.waitForSelector('[placeholder="Neil Spaceman\\.\\.\\."]')
@@ -28,26 +26,50 @@ async function satelliteCreateAccount(page) {
   await page.locator('[placeholder="Ready for launch\\.\\.\\."]').click()
   await page.locator('[placeholder="Ready for launch\\.\\.\\."]').fill('testing');
   await page.locator('button:has-text("Sign in")').click();
-  //await expect(page).toHaveURL('https://satellite-dev.on.fleek.co/#/friends');
 
-  // Once that account is created, click on Files
-  await page.waitForSelector('button:has-text("Files")')
-  await page.locator('button:has-text("Files")').click();
-  //await expect(page).toHaveURL('https://satellite-dev.on.fleek.co/#/files');
-  
-  // Click on New File to be redirected to consent file scanning
-  await page.waitForSelector('button:has-text("New File")')
-  await page.locator('button:has-text("New File")').click();
+  // Close Welcome Modal
+  let gotItButton = "//div[@id='app']//div[@class='container']//div[@class='welcome-content']/button[@type='button']"
+  await page.waitForSelector(gotItButton)
+  await page.locator(gotItButton).click();
+
+  //Once that account is created, click on Files
+  let filesButton = '.sidebar-full-btn.color-dark'
+  await page.waitForSelector(filesButton)
+  await page.locator(filesButton).click();
   
   // Allow file scanning toggle switch and close modal
-  await page.waitForSelector('div:nth-child(5) > div:nth-child(2) > .switch-container > .switch-button')
-  await page.locator('div:nth-child(5) > div:nth-child(2) > .switch-container > .switch-button').click();
-  await page.locator('.close-button').click();
+  let newFileButton = '.add-container > .button.color-primary.size-md'
+  await page.waitForSelector(newFileButton)
+  await page.locator(newFileButton).click()
 
-  // Click again on new file and upload a random file
+  // Consent to File Scanning Modal
+  await page.waitForSelector('.confirm-button')
+  await page.locator('.confirm-button').click()
+
+  /* Click again on new file and upload a random file
+  await page.waitForSelector(newFileButton)
+  await page.locator(newFileButton).click()
   const [fileChooser] = await Promise.all([
     page.waitForEvent('filechooser'),
     page.locator('button:has-text("New File")').click(),
   ]);
-  await fileChooser.setFiles('error.txt')
+  await fileChooser.setFiles('testfile.txt')*/
+
+  //Clear Local Storage
+  //Click on Settings
+  let settingsButton = '.circle-group > button:nth-of-type(2)'
+  await page.waitForSelector(settingsButton)
+  await page.locator(settingsButton).click()
+  //Click on Storage
+  await page.waitForSelector('text=Storage')
+  await page.locator('text=Storage').click()
+  //Click on Clear Local Storage
+  await page.waitForSelector('text=Clear Local Storage')
+  await page.locator('text=Clear Local Storage').click()
+  // Confirm Local Storage Deletion
+  await page.waitForSelector('text=Yes, Really, Clear Local Storage')
+  await page.locator('text=Yes, Really, Clear Local Storage').click()
+
+  //Ensure page was reloaded
+  await page.waitForSelector('text=CHOOSE YOUR PASSWORD', { state: 'visible' })
 }
