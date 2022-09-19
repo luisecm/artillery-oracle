@@ -19,17 +19,17 @@ jobs:
     
     - name: Load Test Action Step 🔨
       id: load-test
-      uses: kenju/github-actions-artillery@master
-      with:
-        filepath: visit-page.yml
-
-    - name: Install artillery-playwright 🔨
-      run: |
-        npm install artillery-engine-playwright
-    
-    - name: Load Test Action Step 🔨
-      id: load-test-2
-      uses: kenju/github-actions-artillery@master
+      uses: luisecm/github-actions-artillery@master
       with:
         filepath: hello-satellite.yml
+
+    #- name: Install artillery-playwright 🔨
+    #  run: |
+    #    npm install artillery-engine-playwright
+    
+    #- name: Load Test Action Step 🔨
+    #  id: load-test-2
+    #  uses: kenju/github-actions-artillery@master
+    #  with:
+    #    filepath: hello-satellite.yml
   
