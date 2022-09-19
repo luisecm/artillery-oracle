@@ -12,6 +12,9 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
+    - name: Install Playwright Test  🔨
+      run: npm install @playwright/test
+
     - name: Install Artillery Playwright Engine  🔨
       run: npm install -g artillery-engine-playwright
     
