@@ -18,7 +18,7 @@ jobs:
         node-version: 16
     
     - name: Install artillery-playwright 🔨
-      script: |
+      run: |
         npm install -g artillery artillery-engine-playwright &&
         npm cache clean --force &&
         rm -rf /root/.cache &&
