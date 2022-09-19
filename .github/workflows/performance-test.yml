@@ -22,7 +22,7 @@ jobs:
     
     - name: Load Test Action Step 🔨
       id: load-test
-      uses: luisecm/github-actions-artillery@master
+      uses: kenju/github-actions-artillery@master
       with:
         filepath: hello-satellite.yml
 
