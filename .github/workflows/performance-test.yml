@@ -14,9 +14,11 @@ jobs:
 
     - name: Install NPM Dependencies
       run: npm install
+      working-directory: /home/runner/work/_actions/luisecm/github-actions-artillery/master
     
     - name: Install Playwright
       run: npx playwright install
+      working-directory: /home/runner/work/_actions/luisecm/github-actions-artillery/master
       
     - name: Load Test Action Step 🔨
       id: load-test
