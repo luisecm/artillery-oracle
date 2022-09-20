@@ -46,14 +46,14 @@ async function satelliteCreateAccount(page) {
   await page.waitForSelector('.confirm-button')
   await page.locator('.confirm-button').click()
 
-  /* Click again on new file and upload a random file
-  await page.waitForSelector(newFileButton)
-  await page.locator(newFileButton).click()
-  const [fileChooser] = await Promise.all([
-    page.waitForEvent('filechooser'),
-    page.locator('button:has-text("New File")').click(),
-  ]);
-  await fileChooser.setFiles('testfile.txt')*/
+  // Click again on new file and upload a random file
+  //await page.waitForSelector(newFileButton)
+  //await page.locator(newFileButton).click()
+  //const [fileChooser] = await Promise.all([
+  //  page.waitForEvent('filechooser'),
+  //  page.locator('button:has-text("New File")').click(),
+  //]);
+  //await fileChooser.setFiles('testfile.txt')
 
   //Clear Local Storage
   //Click on Settings
