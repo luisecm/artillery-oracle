@@ -2,11 +2,11 @@ config:
   target: https://hippo.satellite.im/
   engines:
     playwright:
-      defaultNavigationTimeout: 60
+      defaultNavigationTimeout: 180
       launchOptions:
         headless: true
   phases:
-    - name: "100 VU User"
+    - name: "50 VU User"
       arrivalRate: 50
       duration: 1
   
