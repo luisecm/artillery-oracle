@@ -21,6 +21,7 @@ jobs:
     - name: Install NPM dependencies  📦
       run: |
         npm install -g
+        npm install -g artillery artillery-engine-playwright @playwright/test
         artillery -V
 
     - name: Run Npx Playwright Install 🔨
