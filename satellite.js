@@ -28,7 +28,7 @@ async function satelliteCreateAccount(page) {
   await page.locator('button:has-text("Sign in")').click();
 
   // Close Welcome Modal
-  let gotItButton = "//div[@id='app']//div[@class='container']//div[@class='welcome-content']/button[@type='button']"
+  /*let gotItButton = "//div[@id='app']//div[@class='container']//div[@class='welcome-content']/button[@type='button']"
   await page.waitForSelector(gotItButton)
   await page.locator(gotItButton).click();
 
@@ -71,5 +71,5 @@ async function satelliteCreateAccount(page) {
   await page.locator('text=Yes, Really, Clear Local Storage').click()
 
   //Ensure page was reloaded
-  await page.waitForSelector('text=CHOOSE YOUR PASSWORD', { state: 'visible' })
+  await page.waitForSelector('text=CHOOSE YOUR PASSWORD', { state: 'visible' })*/
 }

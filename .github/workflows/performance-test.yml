@@ -19,7 +19,7 @@ jobs:
         node-version: 16
     
     - name: Install NPM dependencies  📦
-      run: npm install -g artillery artillery-engine-playwright && npm install @playwright/test
+      run: npm install artillery artillery-engine-playwright @playwright/test
 
     - name: Run Npx Playwright Install 🔨
       run: npx playwright install
