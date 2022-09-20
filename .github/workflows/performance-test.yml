@@ -21,11 +21,8 @@ jobs:
     - name: Install NPM dependencies  📦
       run: npm install
 
-    - name: Run Npx Playwright Install
+    - name: Run Npx Playwright Install 🔨
       run: npx playwright install
      
-    - name: Load Test Action Step 🔨
-      id: load-test
-      uses: luisecm/github-actions-artillery@master
-      with:
-        filepath: hello-satellite.yml
+    - name: Execute Load Tests  🌡️
+      run: artillery run hello-satellite.yml
