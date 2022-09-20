@@ -7,8 +7,8 @@ config:
         headless: true
   phases:
     - name: "100 VU User"
-      arrivalRate: 10
-      duration: 120
+      arrivalRate: 100
+      duration: 1
       maxVusers: 100
   
   processor: "./satellite.js"
