@@ -5,9 +5,10 @@ config:
       launchOptions:
         headless: true
   phases:
-    - name: "1 VU User"
-      arrivalRate: 100
-      duration: 1
+    - name: "100 VU User"
+      arrivalRate: 10
+      duration: 120
+      maxVusers: 100
   
   processor: "./satellite.js"
 
