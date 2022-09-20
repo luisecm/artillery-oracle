@@ -2,6 +2,7 @@ config:
   target: https://hippo.satellite.im/
   engines:
     playwright:
+      defaultNavigationTimeout: 60
       launchOptions:
         headless: true
   phases:
