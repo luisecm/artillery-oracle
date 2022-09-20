@@ -11,6 +11,12 @@ jobs:
     
     steps:
     - uses: actions/checkout@master
+
+    - name: Install NPM Dependencies
+      run: npm install
+    
+    - name: Install Playwright
+      run: npx playwright install
       
     - name: Load Test Action Step 🔨
       id: load-test
