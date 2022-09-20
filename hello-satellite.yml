@@ -6,7 +6,7 @@ config:
         headless: false
   phases:
     - name: "1 VU User"
-      arrivalRate: 1
+      arrivalRate: 10
       duration: 1
   
   processor: "./satellite.js"

@@ -6,7 +6,7 @@ on:
 
 jobs:
   load-test-satellite:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     name: Create Account with Multiple VU's
     
     steps:
@@ -19,10 +19,19 @@ jobs:
         node-version: 16
     
     - name: Install NPM dependencies  📦
-      run: npm install
+      run: |
+        npm install -g
+        artillery -V
 
     - name: Run Npx Playwright Install 🔨
       run: npx playwright install
+
+    #- name: Deploy to Heroku
+    #  uses: akhileshns/heroku-deploy@v3.12.12
+    #  with: 
+    #    heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+    #    herok_app_name: "Artillery Testing"
+    #    herok_email: "lcard54@gmail.com"
      
     - name: Execute Load Tests  🌡️
       run: artillery run hello-satellite.yml
