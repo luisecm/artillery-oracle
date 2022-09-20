@@ -6,7 +6,7 @@ on:
 
 jobs:
   load-test-satellite:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     name: Create Account with Multiple VU's
     
     steps:
@@ -19,7 +19,7 @@ jobs:
         node-version: 16
     
     - name: Install NPM dependencies  📦
-      run: npm install
+      run: npm install -g artillery artillery-engine-playwright && npm install @playwright/test
 
     - name: Run Npx Playwright Install 🔨
       run: npx playwright install
