@@ -10,26 +10,22 @@ jobs:
     name: Create Account with Multiple VU's
     
     steps:
-    - uses: actions/checkout@master
+    - name: Checkout working directory  🔖
+      uses: actions/checkout@v3
 
-    - name: Install Playwright Browsers
-      run: |
-        npm install @playwright/test
-        npx playwright install
+    - name: Setup Node.js  🔨
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
     
+    - name: Install NPM dependencies  📦
+      run: npm install
+
+    - name: Run Npx Playwright Install
+      run: npx playwright install
+     
     - name: Load Test Action Step 🔨
       id: load-test
       uses: luisecm/github-actions-artillery@master
       with:
         filepath: hello-satellite.yml
-
-    #- name: Install artillery-playwright 🔨
-    #  run: |
-    #    npm install artillery-engine-playwright
-    
-    #- name: Load Test Action Step 🔨
-    #  id: load-test-2
-    #  uses: kenju/github-actions-artillery@master
-    #  with:
-    #    filepath: hello-satellite.yml
-  
