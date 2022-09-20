@@ -1,8 +1,5 @@
 name: ArtilleryIO Performance Test
 
-env:
-  PLAYWRIGHT_BROWSERS_PATH: /github/home/.cache/ms-playwright/chromium-1019/chrome-linux/chrome
-
 on:
   pull_request:
     types: [opened, synchronize, reopened, edited]
