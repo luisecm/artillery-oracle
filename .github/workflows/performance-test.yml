@@ -16,7 +16,9 @@ jobs:
     - uses: actions/checkout@master
 
     - name: Install Playwright Browsers
-      run: npx playwright install
+      run: |
+        npm install @playwright/test
+        npx playwright install
     
     - name: Load Test Action Step 🔨
       id: load-test
