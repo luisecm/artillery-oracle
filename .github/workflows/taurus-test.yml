@@ -1,0 +1,21 @@
+name: Taurus Performance Test
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+
+jobs:
+  load-test-satellite:
+    runs-on: macos-latest
+    name: Taurus performance tests
+    
+    steps:
+    - name: Checkout working directory 🔖
+      uses: actions/checkout@v3
+ 
+    - name: Execute Load Tests on Taurus 🌡️
+      uses: actions/taurus-action@v1
+      with:
+        taurus_project_folder_name: taurus-tests
+        taurus_command_line: cloud-2.yaml -report
+        blazemeter_api_token: ${{ secrets.BLAZEMETER_TOKEN }}
