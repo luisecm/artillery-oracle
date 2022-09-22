@@ -10,6 +10,8 @@ execution:
   concurrency: 50
   hold-for: 2m
   scenario: selenium_simple
+  capabilities:
+    browserName: chrome
 
 scenarios:
   selenium_simple:
@@ -96,7 +98,7 @@ scenarios:
       assert: 
       - Choose Your Password
       
-modules: # needed when doing cloud testing
-  selenium: # needed when doing cloud testing
-    chromedriver: # needed when doing cloud testing
-      version: 103.0.5060.24 # needed when doing cloud testing
+modules: 
+  selenium:
+    chromedriver:
+      version: 104.0.5112.79
