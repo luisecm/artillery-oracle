@@ -9,7 +9,7 @@ jobs:
     name: Docker Artillery performance tests
     runs-on: ubuntu-latest
     container: 
-      image: luisecm85/artillery-playwright
+      image: luisecm85/artillery-playwright-2
     
     steps:
     - name: Checkout working directory 🔖
