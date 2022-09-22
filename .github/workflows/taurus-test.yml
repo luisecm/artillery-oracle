@@ -8,6 +8,8 @@ jobs:
   load-test-satellite:
     name: Taurus performance tests
     runs-on: ubuntu-latest
+    container: 
+      image: blazemeter/taurus
     
     steps:
     - name: Checkout working directory 🔖
@@ -19,11 +21,8 @@ jobs:
         python-version: '3.9'
     
     - name: Install Pip 🐍
-      run: sudo apt-get install python3-pip
+      run: pip install bzt
 
     - name: Execute Load Tests on Taurus 🌡️
-      uses: Rbillon59/taurus-action@v0.1-beta
-      with:
-        taurus_project_folder_name: taurus-tests
-        taurus_command_line: cloud-2.yaml -report
-        blazemeter_api_token: ${{ secrets.BLAZEMETER_TOKEN }}
+      working-directory: taurus-tests
+      run: bzt cloud-2.yaml
