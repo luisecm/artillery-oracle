@@ -6,7 +6,7 @@ on:
 
 jobs:
   load-test-satellite:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     name: Taurus performance tests
     
     steps:
