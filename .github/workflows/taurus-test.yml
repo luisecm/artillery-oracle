@@ -19,7 +19,7 @@ jobs:
         python-version: '3.9'
     
     - name: Install Pip 🐍
-      run: apt-get install python3-pip
+      run: sudo apt-get install python3-pip
 
     - name: Execute Load Tests on Taurus 🌡️
       uses: Rbillon59/taurus-action@v0.1-beta
