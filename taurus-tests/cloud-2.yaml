@@ -7,7 +7,7 @@ services:
 execution:
 - executor: selenium
   blazegrid: true
-  concurrency: 50
+  concurrency: 10
   hold-for: 2m
   scenario: selenium_simple
   capabilities:

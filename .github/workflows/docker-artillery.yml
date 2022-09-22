@@ -1,0 +1,19 @@
+name: Docker ArtilleryIO Performance Test
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+
+jobs:
+  load-test-satellite:
+    name: Docker Artillery performance tests
+    runs-on: ubuntu-latest
+    container: 
+      image: luisecm85/artillery-playwright
+    
+    steps:
+    - name: Checkout working directory 🔖
+      uses: actions/checkout@v3
+
+    - name: Execute Load Tests on Artillery 🌡️
+      run: artillery run hello-satellite.yml
