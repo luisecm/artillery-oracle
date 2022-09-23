@@ -1,0 +1,104 @@
+services:
+- module: shellexec
+  startup:
+  - pwd
+  - ls -la
+
+execution:
+- executor: selenium
+  blazegrid: true
+  concurrency: 10
+  hold-for: 2m
+  scenario: selenium_simple
+  capabilities:
+    browserName: chrome
+
+scenarios:
+  selenium_simple:
+    generate-flow-markers: true
+    headless: false
+    timeout: 60s
+    think-time: 0s
+    data-sources:
+    - path: userdata.csv
+      delimiter: ','
+      loop: true
+      quoted: false
+      encoding: 'utf-8'
+      random-order: false
+    requests:
+    - label: 01 - Pin Account Creation
+      url: https://hippo.satellite.im/
+      actions:
+      - resizeWindow(1949, 1129)
+      - clickByCSS(.input)
+      - typeByCSS(.input): '12345'
+      - typeByCSS(.input): KEY_ENTER
+    
+    - label: 02 - Create/Import Account Selection
+      actions:
+      - clickByCSS(.buttons > button:nth-of-type(1))
+    
+    - label: 03 - Recovery Seed Screen
+      actions: 
+      - clickByCSS(.phrase-body .column:nth-of-type(2) .color-primary)
+    
+    - label: 04 - User Input Screen
+      actions: 
+      - waitForByCSS(.satellite-circle, visible): 60s
+      - clickByCSS(.body .input-container:nth-of-type(1) .font-color-light)
+      - typeByCSS(.body .input-container:nth-of-type(1) .font-color-light): ${username}
+      - clickByCSS(.body .input-container:nth-of-type(2) .font-color-light)
+      - typeByCSS(.body .input-container:nth-of-type(2) .font-color-light): ${status}
+      - keysByCSS(.body .input-container:nth-of-type(2) .font-color-light): KEY_ENTER
+    
+    - label: 05 - Welcome Modal Displayed and Dismissed
+      actions:
+      - waitForByCSS(.modal-dialog, visible): 30s
+      - clickByCSS(.action)
+    
+    - label: 06 - Chat Page Displayed
+      actions:
+      - waitForByCSS(.modal-dialog, NotPresent): 10s
+      - clickByXpath(//div[@id='app']/div[@class='sidebar']//div[@class='sidebar-nav']/button[1])
+    
+    - label: 07 - Click on New File
+      actions:
+      - waitForByCSS(.files-container, visible): 10s
+      - clickByXpath(//*[@id="app"]/div[3]/div/div[1]/div[2]/button)
+    
+    - label: 08 - Consent to File Scanning Modal
+      actions:
+      - waitForByCSS(.confirmation, visible): 10s
+      - clickByXpath(//*[@id="app"]/div[4]/div/div/div/div[2]/button[2])
+    
+    - label: 09 - Go to settings
+      actions:
+      - waitForByCSS(.confirmation, NotPresent): 10s
+      - clickByXpath(//*[@id="app"]/div[1]/div[2]/button[2])
+    
+    - label: 10 - Click on App Settings/Storage
+      actions:
+      - waitForByCSS(.settings, visible): 10s
+      - clickByLinkText(Storage)
+    
+    - label: 11 - Click on Clear Local Storage
+      actions:
+      - waitForByCSS(.page .settings-page:nth-of-type(5) .color-danger, visible): 2s
+      - clickByCSS(.page .settings-page:nth-of-type(5) .color-danger)
+    
+    - label: 12 - Click on Yes, Really, Clear Local Storage
+      actions: 
+      - waitForByCSS(.page .settings-page:nth-of-type(5) .size-md, visible): 2s
+      - clickByCSS(.page .settings-page:nth-of-type(5) .size-md)
+    
+    - label: 13 - Ensure that Choose Your Password Page is displayed
+      actions:
+      - waitForByCSS(.input-container, visible): 15s
+      assert: 
+      - Choose Your Password
+      
+modules: 
+  selenium:
+    chromedriver:
+      version: 104.0.5112.79

@@ -2,11 +2,12 @@ config:
   target: https://hippo.satellite.im/
   engines:
     playwright:
+      defaultNavigationTimeout: 180
       launchOptions:
-        headless: false
+        headless: true
   phases:
-    - name: "1 VU User"
-      arrivalRate: 1
+    - name: "50 VU User"
+      arrivalRate: 50
       duration: 1
   
   processor: "./satellite.js"

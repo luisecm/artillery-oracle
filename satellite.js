@@ -28,7 +28,7 @@ async function satelliteCreateAccount(page) {
   await page.locator('button:has-text("Sign in")').click();
 
   // Close Welcome Modal
-  let gotItButton = "//div[@id='app']//div[@class='container']//div[@class='welcome-content']/button[@type='button']"
+  /*let gotItButton = "//div[@id='app']//div[@class='container']//div[@class='welcome-content']/button[@type='button']"
   await page.waitForSelector(gotItButton)
   await page.locator(gotItButton).click();
 
@@ -46,14 +46,14 @@ async function satelliteCreateAccount(page) {
   await page.waitForSelector('.confirm-button')
   await page.locator('.confirm-button').click()
 
-  /* Click again on new file and upload a random file
-  await page.waitForSelector(newFileButton)
-  await page.locator(newFileButton).click()
-  const [fileChooser] = await Promise.all([
-    page.waitForEvent('filechooser'),
-    page.locator('button:has-text("New File")').click(),
-  ]);
-  await fileChooser.setFiles('testfile.txt')*/
+  // Click again on new file and upload a random file
+  //await page.waitForSelector(newFileButton)
+  //await page.locator(newFileButton).click()
+  //const [fileChooser] = await Promise.all([
+  //  page.waitForEvent('filechooser'),
+  //  page.locator('button:has-text("New File")').click(),
+  //]);
+  //await fileChooser.setFiles('testfile.txt')
 
   //Clear Local Storage
   //Click on Settings
@@ -71,5 +71,5 @@ async function satelliteCreateAccount(page) {
   await page.locator('text=Yes, Really, Clear Local Storage').click()
 
   //Ensure page was reloaded
-  await page.waitForSelector('text=CHOOSE YOUR PASSWORD', { state: 'visible' })
+  await page.waitForSelector('text=CHOOSE YOUR PASSWORD', { state: 'visible' })*/
 }

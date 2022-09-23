@@ -1,0 +1,24 @@
+{
+  "name": "artillery-oracle",
+  "version": "1.0.0",
+  "description": "Performance Tests Executed on CI",
+  "main": "satellite.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luisecm/artillery-oracle.git"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.26.0",
+    "artillery": "^1.6.0-29",
+    "artillery-engine-playwright": "^0.2.0"
+  },
+  "author": "Luis Cardena",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luisecm/artillery-oracle/issues"
+  },
+  "homepage": "https://github.com/luisecm/artillery-oracle#readme"
+}

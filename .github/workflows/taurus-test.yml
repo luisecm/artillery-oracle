@@ -1,0 +1,28 @@
+name: Taurus Performance Test
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+
+jobs:
+  load-test-satellite:
+    name: Taurus performance tests
+    runs-on: ubuntu-latest
+    container: 
+      image: blazemeter/taurus
+    
+    steps:
+    - name: Checkout working directory 🔖
+      uses: actions/checkout@v3
+
+    - name: Setup Python 🐍
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install Pip 🐍
+      run: pip install bzt
+
+    - name: Execute Load Tests on Taurus 🌡️
+      working-directory: taurus-tests
+      run: bzt cloud-2.yaml
